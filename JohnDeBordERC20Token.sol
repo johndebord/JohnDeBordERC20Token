@@ -1,16 +1,16 @@
-/*******************************************************
-* Primary contract name:                               *
-*   JohnDeBordTokenERC20Token                          *
-*                                                      *
-* Author:                                              *
-*   John DeBord                                        *
-*                                                      *
-* Date created:                                        *
-*   05/15/2018                                         *
-*                                                      *
-* Purpose:                                             *
-*   Personal ERC20 standard compliant token            *
-********************************************************/
+/******************************************************
+* Primary contract name:                              *
+*   JohnDeBordTokenERC20Token                         *
+*                                                     *
+* Author:                                             *
+*   John DeBord                                       *
+*                                                     *
+* Date created:                                       *
+*   05/15/2018                                        *
+*                                                     *
+* Purpose:                                            *
+*   Personal ERC20 standard compliant token           *
+*******************************************************/
 
 
 pragma solidity ^0.4.23;

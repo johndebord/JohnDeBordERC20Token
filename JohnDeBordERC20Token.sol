@@ -1,3 +1,18 @@
+/*******************************************************
+* Primary contract name:                               *
+*   JohnDeBordTokenERC20Token                          *
+*                                                      *
+* Author:                                              *
+*   John DeBord                                        *
+*                                                      *
+* Date created:                                        *
+*   05/15/2018                                         *
+*                                                      *
+* Purpose:                                             *
+*   Personal ERC20 standard compliant token            *
+********************************************************/
+
+
 pragma solidity ^0.4.23;
 
 
@@ -36,9 +51,10 @@ library SafeMath {
 }
 
 
+/// @title ERC20Interface
 // Abstract contract for the full ERC 20 Token standard
 // https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md
-contract EIP20Interface {
+contract ERC20Interface {
     /// total amount of tokens
     uint256 public totalSupply;
 
@@ -87,8 +103,9 @@ contract EIP20Interface {
 }
 
 
+/// @title ERC20
 /// Implements EIP20 token standard: https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md
-contract EIP20 is EIP20Interface {
+contract EIP20 is ERC20Interface {
     using SafeMath for uint256;
 
     mapping (address => uint256) public balances;
@@ -211,7 +228,7 @@ contract Pausable is Ownable {
 
 /// @title PausableToken
 /// @dev Adds a layer of pausable abstraction on top of the token
-contract PausableToken is EIP20, Pausable {
+contract PausableToken is ERC20, Pausable {
 
     function transfer(address _to, uint256 _value) public whenNotPaused returns (bool) {
         return super.transfer(_to, _value);
@@ -234,10 +251,11 @@ contract PausableToken is EIP20, Pausable {
     }
 }
 
-
-contract JohnDeBordToken is PausableToken {
-    string public constant name     = "JohnDeBordToken";
-    string public constant symbol   = "JD";
+/// @title JohnDeBordTokenERC20Token
+/// @dev Full implementation of JohnDeBordTokenERC20Token
+contract JohnDeBordTokenERC20Token is PausableToken {
+    string public constant name     = "JohnDeBordTokenERC20Token";
+    string public constant symbol   = "JD20";
     uint8  public constant decimals = 18;
 
     modifier validDestination( address to ) {
